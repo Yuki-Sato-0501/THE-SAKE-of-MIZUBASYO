@@ -115,8 +115,21 @@ class SakeLibrary extends Database{
         $result = $this->conn->query($sql);
     
         if($result ==TRUE){
+            $recent_id = $this->conn->insert_id;
+            $sql2 = "SELECT * FROM users WHERE user_id = '$recent_id'";
+            $result2 = $this->conn->query($sql2);
+            if($result2->num_rows == 1){
+                $row = $result2->fetch_assoc();
+                $_SESSION['user_id'] = $row['user_id'];
+                $_SESSION['user_name'] = $row['user_name'];
+                header('location:RegisterDone.php');
+
+            }else{
+                echo "error in sql 2";
+            }
+
           // echo "result true";
-          header('location:RegisterDone.php');
+        
         }else{
           die('ERROR: '.$this->conn->error);
         }
@@ -153,7 +166,8 @@ class SakeLibrary extends Database{
         $result = $this->conn->query($sql);
     
         if($result ==TRUE){
-          
+           
+                
           header('location:Receipt.php');
         }else{
           die('ERROR: '.$this->conn->error);
@@ -173,6 +187,7 @@ class SakeLibrary extends Database{
         if($result->num_rows == 1){
             $container = array();
             while($row = $result->fetch_assoc()){
+                
                 $container[] = $row;
 
             }
@@ -204,14 +219,14 @@ class SakeLibrary extends Database{
         
     }
 
-    public function delete(){
+    public function delete_user_order($cart_id){
         
-        $cid = $_GET['cid'];
-        $sql ="DELETE FROM user_cart WHERE cart_id = '$cid'";
+       
+        $sql ="DELETE FROM user_cart WHERE cart_id = '$cart_id'";
         $result = $this->conn->query($sql);
 
         if($result == TRUE){
-            array_splice($cart_id);
+           header('location:order_history.php');
         }else{
             die("ERROR: ". $this->conn->error);
         }

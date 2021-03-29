@@ -22,25 +22,28 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/account.css">
 </head>
-<div class="nav">
-  <h1><a href="Showcase.php">The Mizubasho</a>
-  </h1>
-  <nav class="menu-right menu">
-    <ul>
-      <li><a href="Showcase.php">Home</a></li>
-      <!-- <li><a href="Account.php">My Account</a></li> -->
-      <!-- <li><a href="">Contact us</a></li> -->
-      <!-- <li><a href="Cart.php">Cart</a></li> -->
-    </ul>
-  </nav>
-</div>
-
 <body>
-
-  <div class="container">
-    <h3>YOUR ACCOUNT</h3>
-  </div>
+<div id="account"class="big-bg">
+    <header class="page-header wrapper">
+  
+      <h1>The Mizubasho</a>
+      </h1>
+      <nav>
+        <ul class="main-nav">
+          <li><a href="Showcase.php">Home</a></li>
+          <!-- <li><a href="Account.php">My Account</a></li> -->
+          <li><a href="order_history.php">Order History</a></li>
+          <li><a href="Cart.php">Receipt</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="wrapper">
+      <h1 class="page-title">Your Account</h1>
+      </div>
+    </div>
+  
   <?php
   include 'classes/SakeLibrary.php';
   $sakeObj = new SakeLibrary;
@@ -51,7 +54,7 @@
     // echo $row['user_id'];
 
   ?>
-
+<br>
     <table class="table table-striped w-50">
       <tr>
         <th colspan="2">Registered INFO</th>
@@ -83,35 +86,7 @@
   }
 
   ?>
-  <h1>Sake that you bought</h1>
-  <table class="table table-striped">
-    <tbody>
-      <?php
-
-
-      $user_cart = $sakeObj->allsake_bought();
-      // print_r($user_cart);
-      foreach ($user_cart as $row) {
-        // echo $row['user_id'];
-        $card_id = $row['cart_id']
-
-      ?>
-
-        <tr>
-          <td><?php echo $row['product_name'] ?></td>
-          <td><?php echo $row['price'] ?></td>
-          <td><?php echo $row['quantity'] ?></td>
-          <td><?php echo $row['total'] ?></td>
-          <td><a href="Sakelibrary_action.php?action=delete?cid=$cart_id" class="href"></a><button type="submit" class="btn bnt-primary">Delete</button></td>
-        </tr>
-
-      <?php
-      }
-      ?>
-
-
-    </tbody>
-  </table>
+  
 
 
 

@@ -25,7 +25,9 @@
           <div class="card w-50 mx-auto">
               <div class="card-header">
                   <p class="text-center lead">
-                    USER REGISTER DONE
+                    <a href="Showcase.php" class="href">
+                    Congratulation<br>Let'go find your best SAKE!
+                    </a>
                   </p>
               </div>
           </div>

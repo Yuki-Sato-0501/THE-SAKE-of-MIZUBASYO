@@ -13,25 +13,44 @@ $sake_list = $sakeObj->read_sake();
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <!-- Headder -->
-    <p><?php echo "Welcome to " . $_SESSION['user_name']?></p>
+    <nav class="menu-right menu">
+    <?php
+    // session_start();åå
+    // login_user_id(true);
+    if(empty($_SESSION['user_id'])){
+      echo 'Welocme Guest User  ';
+      echo ' /<a href="Login.php"> Login</a>';
+       echo '<a href="Register.php" class="href"> / Create a New Account</a>';
+    }
+    else{
+      echo 'Welcome ';
+      echo $_SESSION['user_name'];
+      echo '/<a href="Logout.php">Logout</a>';
+    }
+    
+    // <?php echo "Welcome to " . $_SESSION['user_name']?>
+    <!-- <a href="Logout.php" class="">Logout</a> -->
+    </nav>
 
     <div class="nav">
-      <h1><a href="Showcase.php">The Mizubasho</a>
+      <h1>The Mizubasho</a>
       </h1>
-      <nav class="menu-right menu">
+      
         <ul>
           <li><a href="Showcase.php">Home</a></li>
           <li><a href="Account.php">My Account</a></li>
-          <!-- <li><a href="">Contact us</a></li> -->
+          <li><a href="order_history.php">Order History</a></li>
           <li><a href="Cart.php">Cart</a></li>
         </ul>
-      </nav>
+     
     </div>
 
     <!-- Banner Area -->
@@ -81,13 +100,13 @@ $sake_list = $sakeObj->read_sake();
           $id = $sake['sake_id'];
           ?>
          
-          <div class="card w-50 mx-aut mb-5">
+          <div class="card">
             <div class="card-header">
               <img src="img/<?php echo $sake['sake_img'] ?>" alt="" class="card-img-top">
             </div>
 
             <div class="card-body">
-              <p class="text-center lead">
+              <p class="text-center">
               <a href="ProductsDetail.php?id=<?php echo $sake['sake_id'] ?>"> <?php echo $sake['sake_name'] ?></a>
                 <br>
                 ¥<?php echo $sake['sake_price'] ?>
@@ -97,11 +116,12 @@ $sake_list = $sakeObj->read_sake();
                 <input type="hidden" name="sake_name" value="<?php echo $sake['sake_name'] ?>">
                 <input type="hidden" name="sake_id" value="<?php echo $id?>">
                 <input type="hidden" name="sake_price" value=" <?php echo $sake['sake_price'] ?>">
+                <label>
                 Qantity:<input type="number" name="quantity">
-           
+                </label>
             <div class="card-footer">
               <!-- <a href="ProductsDetail.php?id=<?php echo $sake['sake_id'] ?>">Check more Details here</a> -->
-              <button type="submit" name="addToCart" class="btn-sm btn-blue">Add to Cart</button>
+              <button type="submit" name="addToCart" class="btn-sm">Add to Cart</button>
         </form>
             </div>
           </div>
@@ -113,7 +133,7 @@ $sake_list = $sakeObj->read_sake();
           $price = isset($_POST['sake_price'])? htmlspecialchars($_POST['sake_name'],ENT_QUOTES, 'utf-8') : '';
           $count = isset($_POST['sake_quantity'])? htmlspecialchars($_POST['sake_name'],ENT_QUOTES, 'utf-8') : '';
 
-          session_start();
+          // session_start();
 
           if(isset($_SESSION['products'])){
               $products = $_SESSION['products'];

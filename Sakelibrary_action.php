@@ -81,6 +81,8 @@ else if(isset($_POST['login'])){
   }
 
 
+
+
 else if(isset($_POST['finalizeorder'])){
     $sake_name = $_POST['sake_name'];
     $sake_price = (int)$_POST['sake_price'];
@@ -91,25 +93,19 @@ else if(isset($_POST['finalizeorder'])){
     $sakeObj->finalizeorder($sake_name,$sake_price,$sake_quantity,$total,$id);
 }
 
-else if ($_GET['action'] == "remove"){
-    unset($_SESSION['sake_name']);
-    unset($_SESSION['sake_price']);
-    unset($_SESSION['sake_quantity']);
-    unset($_SESSION['sake_id']);
-    unset($_SESSION['total']);
+// elseif(){
+//     unset($_SESSION['sake_name']);
+//     unset($_SESSION['sake_price']);
+//     unset($_SESSION['sake_quantity']);
+//     unset($_SESSION['sake_id']);
+//     unset($_SESSION['total']);
 
-    header('Location:Showcase.php');
-
-
-}
-
-else if ($_GET['action'] == "delete"){
-   $cart_id = $_GET['cid'];
-
-//    create a function to remove the cart_id from table
+//     header('Location:Showcase.php');
 
 
-}
+// }
+
+
 
 
 

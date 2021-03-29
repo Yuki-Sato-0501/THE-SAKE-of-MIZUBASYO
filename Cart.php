@@ -18,28 +18,30 @@ session_start();
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
-    <!-- Headder -->
-    <div class="nav">
-      <h1><a href="Showcase.php">The Mizubasho</a>
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+<div id="account"class="big-bg">
+    <header class="page-header wrapper">
+  
+      <h1>The Mizubasho</a>
       </h1>
-      <nav class="menu-right menu">
-        <ul>
+      <nav>
+        <ul class="main-nav">
           <li><a href="Showcase.php">Home</a></li>
-          <li><a href="">Menu</a></li>
-          <li><a href="">Contact us</a></li>
-          <li><a href="Cart.php">Cart</a></li>
+          <li><a href="Account.php">My Account</a></li>
+          <li><a href="order_history.php">Order History</a></li>
+          <!-- <li><a href="Cart.php">Receipt</a></li> -->
         </ul>
       </nav>
+    </header>
+    <div class="wrapper">
+      <h1 class="page-title">Please Check Your Order!</h1>
+      </div>
     </div>
-
-    <main>
-      <div class="wrapper laset-wrapper">
-        <div class="container">
-          <div class="wrapper-title">
-            <h3>YOUT CART</h3>
-          </div>
+  </head>
+  <br>
+    <br>
         <div class="cartlist">
           <table class="table table-bordered table-info table-hover">
             <thead>
@@ -54,13 +56,7 @@ session_start();
             
             
             <?php
-            $sake_ids = $_SESSION['cart'];
-            // echo print_r($sake_ids);
-
-            // foreach($sake_ids as $sake_id){
-              // echo $_SESSION[$sake_id];
-              //  echo $_SESSION['cart'][$sake_id]['sake_name'];
-            // }
+            if(!empty($_SESSION['sake_name'])){
             ?>
             <tbody>
                <tr>
@@ -92,7 +88,9 @@ session_start();
         </div>
 
         <?php
-            
+           } else{
+             echo "YOU HAVENT OREDERED ANY SAKE YET";
+           }
         ?>
       </div>
     </main>

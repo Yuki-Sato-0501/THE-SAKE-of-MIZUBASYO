@@ -1,86 +1,25 @@
 <?php
-// include 'Sakelibrary_action.php';
-
-
-//print_r($_SESSION);
-
-
+session_start();
+session_destroy();
 
 
 ?>
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Logout</title>
+    <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/login.css">
   </head>
   <body>
-    <!-- Headder -->
-    <div id="login"class="big-bg">
-    <header class="page-header wrapper">
-  
-      <h1>The Mizubasho</a>
-      </h1>
-      <nav>
-        <ul class="main-nav">
-          <li><a href="Showcase.php">Home</a></li>
-          <!-- <li><a href="Account.php">My Account</a></li> -->
-          <!-- <li><a href="order_history.php">Order History</a></li> -->
-          <!-- <li><a href="Cart.php">Receipt</a></li> -->
-        </ul>
-      </nav>
-    </header>
-    <div class="wrapper">
-      <h1 class="page-title">Login</h1>
-      
 
-    <form action="Sakelibrary_action.php" method="post">
-      <div>
-        <label for="email">Email:</label>
-        <input type="text" name="email">
-      </div>
-      
-      <div>
-        <label for="password">Password:</label>
-        <input type="password" name="password">
-      </div>
-      
-      <input type="submit" value="login" name="login">
-    
-    </form>
-    </div>
-    </div>
-
-    
-   
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  Logging Out <br>
+  <br>
+  <a href="Showcase.php" class="">Home</a>
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
